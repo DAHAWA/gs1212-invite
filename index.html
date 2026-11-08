@@ -54,7 +54,9 @@ section{padding:56px 24px;text-align:center}
 .grid div{height:34px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
 .grid .w{height:auto}
 .grid .sun{color:var(--sun)}
-.grid .on span{width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-weight:400}
+.grid .on span{position:relative;width:40px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--accent-ink)}
+.grid .on svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--accent)}
+.grid .on b{position:relative;font-weight:500;font-size:16px;margin-top:-4px}
 .dday{margin:22px 0 0;font-size:15px;color:var(--ink)}
 .dday strong{color:var(--accent);font-size:18px}
 .info{text-align:left;max-width:360px;margin:0 auto;display:grid;grid-template-columns:64px minmax(0,1fr);row-gap:10px;column-gap:12px;font-size:14px;line-height:1.55}
@@ -134,11 +136,11 @@ footer{padding:40px 24px 56px;text-align:center}
   <p class="label">마음 전하실 곳</p>
   <p class="note">참석이 어려우신 분들을 위해 적었습니다.<br>너그러운 마음으로 양해 부탁드립니다.</p>
   <details>
-    <summary>신랑측 계좌번호<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></summary>
+    <summary>신랑 측 계좌번호<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></summary>
     <div class="acct"><div><div class="who">신랑 김고헌</div><div class="num">농협 302-2167-5461-41</div></div><button class="btn" type="button" data-copy="농협 302-2167-5461-41">복사</button></div>
   </details>
   <details>
-    <summary>신부측 계좌번호<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></summary>
+    <summary>신부 측 계좌번호<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></summary>
     <div class="acct"><div><div class="who">신부 이상미</div><div class="num">하나 637-910404-18907</div></div><button class="btn" type="button" data-copy="하나 637-910404-18907">복사</button></div>
   </details>
 </section>
@@ -158,7 +160,7 @@ footer{padding:40px 24px 56px;text-align:center}
   for(var i=0;i<2;i++){grid.appendChild(document.createElement('div'));}
   for(var n=1;n<=31;n++){
     var d=document.createElement('div');var col=(n+1)%7;
-    if(n===12){d.className='on';var s=document.createElement('span');s.textContent=n;d.appendChild(s);}
+    if(n===12){d.className='on';var s=document.createElement('span');s.innerHTML='<svg viewBox="0 0 24 21" aria-hidden="true"><path d="M12 21C11.5 20.6 0 13.4 0 6.4C0 2.8 2.8 0 6.3 0C8.6 0 10.7 1.2 12 3.1C13.3 1.2 15.4 0 17.7 0C21.2 0 24 2.8 24 6.4C24 13.4 12.5 20.6 12 21Z"/></svg><b>12</b>';d.appendChild(s);}
     else{d.textContent=n;if(col===0)d.className='sun';}
     grid.appendChild(d);
   }
